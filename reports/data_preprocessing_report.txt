@@ -1,0 +1,165 @@
+================================================================================
+SUPERSTORE DATA - DATA PREPROCESSING
+================================================================================
+
+Step 1: Loading data...
+✓ Loaded 9994 rows × 21 columns from data/raw/Sample - Superstore.csv
+
+Step 2: Converting data types...
+✓ Data types converted
+  Order Date: datetime
+  Ship Date: datetime
+  Sales, Quantity, Discount, Profit: numeric
+
+Step 3: Checking for missing values...
+✓ No missing values found!
+
+Step 4: Detecting outliers...
+✓ No major outliers detected!
+
+Step 5: Creating derived features...
+✓ Derived features created:
+  • Days_to_Ship
+  • Profit_Margin, Profit_Margin_Pct
+  • Sales_per_Unit
+  • Discount_Amount
+  • Order_Year, Order_Month, Order_Month_Name, Order_Quarter, Order_Day_of_Week
+  • Is_Loss, High_Discount
+
+Step 6: Cleaning text fields...
+✓ Text fields cleaned and standardized
+
+Step 7: Data validation...
+Validation Results:
+  ✓ Total Rows: 9994
+  ✓ Columns: 33
+  ✓ Unique Customers: 793
+  ✓ Unique Orders: 5009
+  ✓ Unique Products: 1850
+  ✓ Date Range (Start): 2014-01-03
+  ✓ Date Range (End): 2017-12-30
+
+Step 8: Summary statistics (cleaned data)...
+
+Sales Metrics:
+  Total Sales: $2,297,200.86
+  Avg Sales per Order: $229.86
+  Total Profit: $286,397.02
+  Avg Profit Margin: 12.03%
+
+Volume Metrics:
+  Total Orders: 5,009
+  Total Units Sold: 37,873
+  Avg Units per Order: 3.79
+
+Customer Metrics:
+  Total Customers: 793
+  Orders per Customer: 12.60
+  Repeat Customers: 788
+
+Quality Metrics:
+  Loss-making Orders: 1871 (18.72%)
+  High Discount Orders: 1393 (13.94%)
+  Avg Days to Ship: 3.96
+
+Step 9: Saving cleaned data...
+✓ Cleaned data saved to: data/processed/Superstore_Cleaned.csv
+✓ Data quality report saved to: data/processed/Data_Quality_Report.txt
+
+Step 10: Merging reports into one file...
+
+================================================================================
+MERGED DATA QUALITY REPORT
+================================================================================
+================================================================================
+SUPERSTORE DATA QUALITY REPORT
+================================================================================
+
+DATASET OVERVIEW
+--------------------------------------------------------------------------------
+Total Rows: 9994
+Total Columns: 33
+Date Range: 2014-01-03 to 2017-12-30
+
+DATA QUALITY CHECKS
+--------------------------------------------------------------------------------
+Missing Values: 0 (PASS)
+Negative Sales: 0 records
+Invalid Quantities: 0 records
+Invalid Discounts: 0 records
+Negative Ship Times: 0 records
+
+KEY METRICS
+--------------------------------------------------------------------------------
+Total Sales: $2,297,200.86
+Total Profit: $286,397.02
+Profit Margin: 12.47%
+Total Orders: 5,009
+Total Customers: 793
+Loss-making Orders: 1871 (18.72%)
+
+COLUMNS IN CLEANED DATASET
+--------------------------------------------------------------------------------
+1. Row ID
+2. Order ID
+3. Order Date
+4. Ship Date
+5. Ship Mode
+6. Customer ID
+7. Customer Name
+8. Segment
+9. Country
+10. City
+11. State
+12. Postal Code
+13. Region
+14. Product ID
+15. Category
+16. Sub-Category
+17. Product Name
+18. Sales
+19. Quantity
+20. Discount
+21. Profit
+22. Days_to_Ship
+23. Profit_Margin
+24. Profit_Margin_Pct
+25. Sales_per_Unit
+26. Discount_Amount
+27. Order_Year
+28. Order_Month
+29. Order_Month_Name
+30. Order_Quarter
+31. Order_Day_of_Week
+32. Is_Loss
+33. High_Discount
+
+Report Generated: 2026-04-15 12:51:11
+
+
+================================================================================
+PREPROCESSING COMPLETE
+================================================================================
+
+Processing Summary:
+  ✓ Data types standardized
+  ✓ Date columns converted to datetime
+  ✓ Numeric columns validated
+  ✓ 12 derived features created
+  ✓ Text fields cleaned and standardized
+  ✓ Data quality checks performed
+  ✓ Cleaned dataset exported
+
+Files Created:
+  1. data/processed/Superstore_Cleaned.csv
+  2. data/processed/Data_Quality_Report.txt
+
+Next Steps:
+  1. Load the cleaned data in PowerBI
+  2. Create data model with relationships
+  3. Build dashboards using specifications
+  4. Implement interactive slicers and filters
+  5. Create calculated measures and fields
+  6. Test and validate dashboard results
+
+================================================================================

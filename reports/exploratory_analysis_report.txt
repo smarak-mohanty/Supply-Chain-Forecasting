@@ -1,0 +1,529 @@
+================================================================================
+SUPERSTORE DATA - EXPLORATORY DATA ANALYSIS
+================================================================================
+
+Loading cleaned data...
+
+✓ Data loaded successfully from data\processed\Superstore_Cleaned.csv!
+Dataset shape: 9994 rows × 33 columns
+
+================================================================================
+1. DATASET OVERVIEW
+================================================================================
+
+First few rows:
+   Row ID        Order ID  Order Date   Ship Date       Ship Mode  ... Order_Month_Name Order_Quarter Order_Day_of_Week Is_Loss High_Discount
+0       1  CA-2016-152156  2016-11-08  2016-11-11    Second Class  ...         November            Q4           Tuesday       0             0
+1       2  CA-2016-152156  2016-11-08  2016-11-11    Second Class  ...         November            Q4           Tuesday       0             0
+2       3  CA-2016-138688  2016-06-12  2016-06-16    Second Class  ...             June            Q2            Sunday       0             0
+3       4  US-2015-108966  2015-10-11  2015-10-18  Standard Class  ...          October            Q4            Sunday       1             1
+4       5  US-2015-108966  2015-10-11  2015-10-18  Standard Class  ...          October            Q4            Sunday       0             0
+
+[5 rows x 33 columns]
+
+Data Types:
+Row ID                 int64
+Order ID                 str
+Order Date               str
+Ship Date                str
+Ship Mode                str
+Customer ID              str
+Customer Name            str
+Segment                  str
+Country                  str
+City                     str
+State                    str
+Postal Code            int64
+Region                   str
+Product ID               str
+Category                 str
+Sub-Category             str
+Product Name             str
+Sales                float64
+Quantity               int64
+Discount             float64
+Profit               float64
+Days_to_Ship           int64
+Profit_Margin        float64
+Profit_Margin_Pct    float64
+Sales_per_Unit       float64
+Discount_Amount      float64
+Order_Year             int64
+Order_Month            int64
+Order_Month_Name         str
+Order_Quarter            str
+Order_Day_of_Week        str
+Is_Loss                int64
+High_Discount          int64
+dtype: object
+
+Missing Values:
+  ✓ No missing values detected!
+
+Dataset Info:
+<class 'pandas.DataFrame'>
+RangeIndex: 9994 entries, 0 to 9993
+Data columns (total 33 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   Row ID             9994 non-null   int64  
+ 1   Order ID           9994 non-null   str    
+ 2   Order Date         9994 non-null   str    
+ 3   Ship Date          9994 non-null   str    
+ 4   Ship Mode          9994 non-null   str    
+ 5   Customer ID        9994 non-null   str    
+ 6   Customer Name      9994 non-null   str    
+ 7   Segment            9994 non-null   str    
+ 8   Country            9994 non-null   str    
+ 9   City               9994 non-null   str    
+ 10  State              9994 non-null   str    
+ 11  Postal Code        9994 non-null   int64  
+ 12  Region             9994 non-null   str    
+ 13  Product ID         9994 non-null   str    
+ 14  Category           9994 non-null   str    
+ 15  Sub-Category       9994 non-null   str    
+ 16  Product Name       9994 non-null   str    
+ 17  Sales              9994 non-null   float64
+ 18  Quantity           9994 non-null   int64  
+ 19  Discount           9994 non-null   float64
+ 20  Profit             9994 non-null   float64
+ 21  Days_to_Ship       9994 non-null   int64  
+ 22  Profit_Margin      9994 non-null   float64
+ 23  Profit_Margin_Pct  9994 non-null   float64
+ 24  Sales_per_Unit     9994 non-null   float64
+ 25  Discount_Amount    9994 non-null   float64
+ 26  Order_Year         9994 non-null   int64  
+ 27  Order_Month        9994 non-null   int64  
+ 28  Order_Month_Name   9994 non-null   str    
+ 29  Order_Quarter      9994 non-null   str    
+ 30  Order_Day_of_Week  9994 non-null   str    
+ 31  Is_Loss            9994 non-null   int64  
+ 32  High_Discount      9994 non-null   int64  
+dtypes: float64(7), int64(8), str(18)
+memory usage: 2.5 MB
+None
+
+================================================================================
+2. STATISTICAL SUMMARY
+================================================================================
+
+Numeric Columns Summary:
+            Row ID   Postal Code         Sales     Quantity     Discount  ...  Discount_Amount   Order_Year  Order_Month      Is_Loss  High_Discount
+count  9994.000000   9994.000000   9994.000000  9994.000000  9994.000000  ...      9994.000000  9994.000000  9994.000000  9994.000000    9994.000000
+mean   4997.500000  55190.379428    229.858001     3.789574     0.156203  ...        32.277580  2015.722233     7.809686     0.187212       0.139384
+std    2885.163629  32063.693350    623.245101     2.225110     0.206452  ...       164.025577     1.123555     3.284654     0.390101       0.346364
+min       1.000000   1040.000000      0.444000     1.000000     0.000000  ...         0.000000  2014.000000     1.000000     0.000000       0.000000
+25%    2499.250000  23223.000000     17.280000     2.000000     0.000000  ...         0.000000  2015.000000     5.000000     0.000000       0.000000
+50%    4997.500000  56430.500000     54.490000     3.000000     0.200000  ...         1.036800  2016.000000     9.000000     0.000000       0.000000
+75%    7495.750000  90008.000000    209.940000     5.000000     0.200000  ...        14.870400  2017.000000    11.000000     0.000000       0.000000
+max    9994.000000  99301.000000  22638.480000    14.000000     0.800000  ...     11319.240000  2017.000000    12.000000     1.000000       1.000000
+
+[8 rows x 15 columns]
+
+Categorical Columns Summary:
+
+Order ID:
+  Unique values: 5009
+  Top 5 values:
+Order ID
+CA-2017-100111    14
+CA-2017-157987    12
+US-2016-108504    11
+CA-2016-165330    11
+CA-2015-131338    10
+Name: count, dtype: int64
+
+Order Date:
+  Unique values: 1237
+  Top 5 values:
+Order Date
+2016-09-05    38
+2017-09-02    36
+2016-11-10    35
+2017-12-01    34
+2017-12-02    34
+Name: count, dtype: int64
+
+Ship Date:
+  Unique values: 1334
+  Top 5 values:
+Ship Date
+2015-12-16    35
+2017-09-26    34
+2017-11-21    32
+2017-12-06    32
+2017-09-15    30
+Name: count, dtype: int64
+
+Ship Mode:
+  Unique values: 4
+  Top 5 values:
+Ship Mode
+Standard Class    5968
+Second Class      1945
+First Class       1538
+Same Day           543
+Name: count, dtype: int64
+
+Customer ID:
+  Unique values: 793
+  Top 5 values:
+Customer ID
+WB-21850    37
+MA-17560    34
+JL-15835    34
+PP-18955    34
+JD-15895    32
+Name: count, dtype: int64
+
+Customer Name:
+  Unique values: 793
+  Top 5 values:
+Customer Name
+William Brown       37
+Matt Abelman        34
+John Lee            34
+Paul Prost          34
+Jonathan Doherty    32
+Name: count, dtype: int64
+
+Segment:
+  Unique values: 3
+  Top 5 values:
+Segment
+Consumer       5191
+Corporate      3020
+Home Office    1783
+Name: count, dtype: int64
+
+Country:
+  Unique values: 1
+  Top 5 values:
+Country
+United States    9994
+Name: count, dtype: int64
+
+City:
+  Unique values: 531
+  Top 5 values:
+City
+New York City    915
+Los Angeles      747
+Philadelphia     537
+San Francisco    510
+Seattle          428
+Name: count, dtype: int64
+
+State:
+  Unique values: 49
+  Top 5 values:
+State
+California      2001
+New York        1128
+Texas            985
+Pennsylvania     587
+Washington       506
+Name: count, dtype: int64
+
+Region:
+  Unique values: 4
+  Top 5 values:
+Region
+West       3203
+East       2848
+Central    2323
+South      1620
+Name: count, dtype: int64
+
+Product ID:
+  Unique values: 1862
+  Top 5 values:
+Product ID
+OFF-PA-10001970    19
+TEC-AC-10003832    18
+FUR-FU-10004270    16
+FUR-CH-10001146    15
+TEC-AC-10003628    15
+Name: count, dtype: int64
+
+Category:
+  Unique values: 3
+  Top 5 values:
+Category
+Office Supplies    6026
+Furniture          2121
+Technology         1847
+Name: count, dtype: int64
+
+Sub-Category:
+  Unique values: 17
+  Top 5 values:
+Sub-Category
+Binders        1523
+Paper          1370
+Furnishings     957
+Phones          889
+Storage         846
+Name: count, dtype: int64
+
+Product Name:
+  Unique values: 1850
+  Top 5 values:
+Product Name
+Staple Envelope            48
+Easy-Staple Paper          46
+Staples                    46
+Avery Non-Stick Binders    20
+Staples In Misc. Colors    19
+Name: count, dtype: int64
+
+Order_Month_Name:
+  Unique values: 12
+  Top 5 values:
+Order_Month_Name
+November     1471
+December     1408
+September    1383
+October       819
+May           735
+Name: count, dtype: int64
+
+Order_Quarter:
+  Unique values: 4
+  Top 5 values:
+Order_Quarter
+Q4    3698
+Q3    2799
+Q2    2120
+Q1    1377
+Name: count, dtype: int64
+
+Order_Day_of_Week:
+  Unique values: 7
+  Top 5 values:
+Order_Day_of_Week
+Monday      1871
+Friday      1818
+Sunday      1710
+Saturday    1655
+Thursday    1463
+Name: count, dtype: int64
+
+================================================================================
+3. SALES ANALYSIS
+================================================================================
+
+Total Sales: $2,297,200.86
+Total Orders: 5,009
+Total Customers: 793
+Average Order Value: $458.61
+
+
+Sales by Category:
+                         sum        mean  count  percentage
+Category                                                   
+Furniture        741999.7953  349.834887   2121        32.3
+Office Supplies  719047.0320  119.324101   6026        31.3
+Technology       836154.0330  452.709276   1847        36.4
+
+
+Sales by Segment:
+                      sum        mean  count  percentage
+Segment                                                 
+Consumer     1.161401e+06  223.733644   5191       50.56
+Corporate    7.061464e+05  233.823300   3020       30.74
+Home Office  4.296531e+05  240.972041   1783       18.70
+
+
+Sales by Region:
+                 sum        mean  count  percentage
+Region                                             
+Central  501239.8908  215.772661   2323       21.82
+East     678781.2400  238.336110   2848       29.55
+South    391721.9050  241.803645   1620       17.05
+West     725457.8245  226.493233   3203       31.58
+
+================================================================================
+4. PROFITABILITY ANALYSIS
+================================================================================
+
+Total Profit: $286,397.02
+Profit Margin: 12.47%
+Orders with Loss: 1871 (18.72%)
+
+
+Profit by Category:
+                         sum       mean    margin%
+Category                                          
+Furniture         18451.2728   8.699327   2.486695
+Office Supplies  122490.8008  20.327050  17.035158
+Technology       145454.9481  78.752002  17.395712
+
+
+Top 10 Loss-Making Products:
+                                                       Profit  Sales  Discount
+Product Name                                                                  
+Cubify Cubex 3D Printer Double Head Print          -9239.9692      2  0.700000
+Gbc Docubind P400 Electric Binding System          -6859.3896      3  0.766667
+Lexmark Mx611Dhe Monochrome Laser Printer          -5269.9690      3  0.500000
+Gbc Ibimaster 500 Manual Proclick Binding System   -5098.5660      6  0.716667
+Gbc Docubind Tl300 Electric Binding System         -4162.0336      4  0.725000
+Cubify Cubex 3D Printer Triple Head Print          -3839.9904      1  0.500000
+Fellowes Pb500 Electric Punch Plastic Comb Bind... -3431.6730      2  0.800000
+Chromcraft Bull-Nose Wood Oval Conference Table... -3107.5272      4  0.350000
+Ibico Epk-21 Electric Binding System               -2929.4845      1  0.800000
+Bush Advantage Collection Racetrack Conference ... -2545.2600      6  0.408333
+
+
+Discount Impact on Profit:
+Average Discount: 15.62%
+Orders with Discount: 5196 (51.99%)
+
+================================================================================
+5. CUSTOMER ANALYSIS
+================================================================================
+
+
+Customer Distribution by Segment:
+Segment
+Consumer       409
+Corporate      236
+Home Office    148
+Name: Customer ID, dtype: int64
+
+
+Orders per Customer Statistics:
+  Min Orders: 1
+  Max Orders: 37
+  Avg Orders: 12.60
+  Repeat Customers (2+ orders): 788 (99.37%)
+
+
+Top 10 Customers by Profit:
+                      Total_Profit  Total_Sales  Orders
+Customer Name                                          
+Tamara Chand             8981.3239    19052.218       5
+Raymond Buch             6976.0959    15117.339       6
+Sanjit Chand             5757.4119    14142.334       9
+Hunter Lopez             5622.4292    12873.298       6
+Adrian Barton            5444.8055    14473.571      10
+Tom Ashbrook             4703.7883    14595.620       4
+Christopher Martinez     3899.8904     8954.020       4
+Keith Dawkins            3038.6254     8181.256      12
+Andy Reiter              2884.6208     6608.448       6
+Daniel Raglin            2869.0760     8350.868       8
+
+================================================================================
+6. TEMPORAL ANALYSIS
+================================================================================
+
+Date Range:
+  Earliest Order: 2014-01-03
+  Latest Order: 2017-12-30
+  Time Span: 1457 days
+
+
+Shipping Time Analysis:
+  Average Days to Ship: 3.96
+  Min Days: 0
+  Max Days: 7
+  Median Days: 4
+
+
+Orders by Ship Mode:
+                Orders         Sales       Profit  Avg_Days
+Ship Mode                                                  
+First Class       1538  3.514284e+05   48969.8399  2.182705
+Same Day           543  1.283631e+05   15891.7589  0.044199
+Second Class      1945  4.591936e+05   57446.6354  3.238046
+Standard Class    5968  1.358216e+06  164088.7875  5.006535
+
+================================================================================
+7. GEOGRAPHIC ANALYSIS
+================================================================================
+
+Top 10 States by Sales:
+State
+California      457687.6315
+New York        310876.2710
+Texas           170188.0458
+Washington      138641.2700
+Pennsylvania    116511.9140
+Florida          89473.7080
+Illinois         80166.1010
+Ohio             78258.1360
+Michigan         76269.6140
+Virginia         70636.7200
+Name: Sales, dtype: float64
+
+
+Regional Breakdown:
+         Orders  Customers        Sales       Profit  Quantity  Margin%
+Region                                                                 
+Central    1175        629  501239.8908   39706.3625      8780     7.92
+East       1401        674  678781.2400   91522.7800     10618    13.48
+South       822        512  391721.9050   46749.4303      6209    11.93
+West       1611        686  725457.8245  108418.4489     12266    14.94
+
+================================================================================
+8. PRODUCT ANALYSIS
+================================================================================
+
+Total Products: 1850
+Total Sub-Categories: 17
+
+
+Top 10 Products by Sales:
+                                                        Sales        Profit  Quantity
+Product Name                                                                         
+Canon Imageclass 2200 Advanced Copier               61599.824  2.519993e+04        20
+Fellowes Pb500 Electric Punch Plastic Comb Bind...  27453.384  7.753039e+03        31
+Cisco Telepresence System Ex90 Videoconferencin...  22638.480 -1.811078e+03         6
+Hon 5400 Series Task Chairs For Big And Tall        21870.576  5.684342e-14        39
+Gbc Docubind Tl300 Electric Binding System          19823.479  2.233505e+03        37
+Gbc Ibimaster 500 Manual Proclick Binding System    19024.500  7.609800e+02        48
+Hewlett Packard Laserjet 3310 Copier                18839.686  6.983884e+03        38
+Hp Designjet T520 Inkjet Large Format Printer -...  18374.895  4.094977e+03        12
+Gbc Docubind P400 Electric Binding System           17965.068 -1.878166e+03        27
+High Speed Automatic Electric Letter Opener         17030.312 -2.620048e+02        11
+
+
+Sub-Category Analysis:
+                    Sales      Profit  Quantity  Orders  Margin%
+Sub-Category                                                    
+Phones        330007.0540  44515.7306      3289     889    13.49
+Chairs        328449.1030  26590.1663      2356     617     8.10
+Storage       223843.6080  21278.8264      3158     846     9.51
+Tables        206965.5320 -17725.4811      1241     319    -8.56
+Binders       203412.7330  30221.7633      5974    1523    14.86
+Machines      189238.6310   3384.7569       440     115     1.79
+Accessories   167380.3180  41936.6357      2976     775    25.05
+Copiers       149528.0300  55617.8249       234      68    37.20
+Bookcases     114879.9963  -3472.5560       868     228    -3.02
+Appliances    107532.1610  18138.0054      1729     466    16.87
+Furnishings    91705.1640  13059.1436      3563     957    14.24
+Paper          78479.2060  34053.5693      5178    1370    43.39
+Supplies       46673.5380  -1189.0995       647     190    -2.55
+Art            27118.7920   6527.7870      3000     796    24.07
+Envelopes      16476.4020   6964.1767       906     254    42.27
+Labels         12486.3120   5546.2540      1400     364    44.42
+Fasteners       3024.2800    949.5182       914     217    31.40
+
+================================================================================
+9. DATA QUALITY & FINDINGS
+================================================================================
+
+Data Quality Issues Found:
+  ⚠ Found 1871 (18.7%) loss-making orders
+  ⚠ Found 856 orders with discount > 50%
+
+================================================================================
+ANALYSIS COMPLETE
+================================================================================
+
+Generated insights can be used for:
+  • PowerBI Dashboard creation
+  • Business strategy development
+  • Product/pricing optimization
+  • Customer retention initiatives
+  • Operational efficiency improvements
